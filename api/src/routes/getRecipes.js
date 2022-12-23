@@ -1,38 +1,45 @@
 const { Router } = require("express");
-const { Recipe } = require('../db')
-const axios = require('axios')
+const { getALLRecipes } = require("../controllers/recipes");
 const router = Router()
 
+
+
 router.get("/", async (req, res) => {
-    try {
-        const apiData = await axios.get("https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5") //traemos toda la data de las recetas en la API
+    const { name } = req.query
+    let recipesTotal = await getALLRecipes()
 
-        const apiRecipes = await apiData.data.results.map(e => {
-            return {
-                id: e.id,
-                name: e.title,
-                summary: e.summary,
-                healthscore: e.healthScore,
-                steps: e.analyzedInstructions[0]?.steps.map(e => {
-                    return (e.step)
-                })
-            }
-        })
+    if (name) {
+        try {
+            let recipeName = recipesTotal.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
 
-        const dbRecipes = await Recipe.findAll() //traemos todas la recetas de la base de datos
+            recipeName.length ?
+                res.status(200).send(recipeName) :
+                res.status(404).send("No existe una receta con ese nombre")
 
-        const allRecipes = [...apiRecipes, ...dbRecipes] //Concatenamos las recetas de la api con las de la base de datos
-        res.status(200).send(allRecipes)                           //Lo hacemos con el spread operator ...
-    } catch (error) {
-        return res.status(400).send({ error: error.message });
+        } catch (error) {
+            return res.status(400).send({ error: error.message });
+        }
+    } else {
+        res.status(200).send(recipesTotal)
     }
 })
 
-router.get("/:id", (req, res) => {
-    try {
-        res.send("Estoy en la ruta de Recetas")
-    } catch (error) {
+router.get("/:id", async (req, res) => {
+    const { id } = req.params
+    const recipesTotal = await getALLRecipes()
+    if (id) {
+        try {
+            let recipeId = recipesTotal.filter(e => e.id == id)
 
+            recipeId.length ?
+                res.status(200).send(recipeId) :
+                res.status(404).send("No existe una receta con ese ID")
+
+        } catch (error) {
+            return res.status(400).send({ error: error.message });
+        }
+    } else {
+        res.status(200).send(recipesTotal)
     }
 })
 
