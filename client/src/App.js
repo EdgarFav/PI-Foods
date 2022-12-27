@@ -1,10 +1,24 @@
 import './App.css';
+import Home from './components/Home.jsx'
+import CreateRecipe from './components/CreateRecipe.jsx'
+import SearchBar from './components/SearchBar.jsx';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <h1>soy Henry Food</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <SearchBar />
+
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route path="/post">
+          <CreateRecipe />
+        </Route>
+      </div>
+    </BrowserRouter>
   );
 }
 
