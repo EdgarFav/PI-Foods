@@ -13,6 +13,7 @@ const getApiRecipes = async () => {
                 name: e.title,
                 summary: e.summary.replaceAll(/<(“[^”]”|'[^’]’|[^'”>])*>/g, ""),
                 healthscore: e.healthScore,
+                image: e.image,
                 diets: e.diets,
                 steps: e.analyzedInstructions[0]?.steps.map(e => {
                     return e.step
@@ -41,6 +42,7 @@ const getDBrecipes = async () => {
                 id: e.id,
                 name: e.name,
                 summary: e.summary,
+                image: e.image,
                 healthscore: e.healthscore,
                 diets: e.diets.map(e => e.name),
                 steps: e.steps

@@ -20,6 +20,10 @@ module.exports = (sequelize) => {
     healthscore: {
       type: DataTypes.INTEGER,
     },
+    image: {
+      type: DataTypes.STRING,
+      defaultValue: 'https://cdn.pixabay.com/photo/2018/03/05/06/26/board-3200054_960_720.jpg'
+    },
     steps: {
       type: DataTypes.ARRAY(DataTypes.STRING),
     },
