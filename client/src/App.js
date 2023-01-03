@@ -1,7 +1,8 @@
 import './App.css';
 import Home from './components/Home/Home.jsx'
-import SearchBar from './components/SearchBar/SearchBar.jsx'
 import LandingPage from './components/LandingPage/LandingPage.jsx'
+import CreateRecipe from './components/CreateRecipe/CreateRecipe.jsx'
+import Detail from './components/Detail/Detail.jsx'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/home" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/home/:id" component={Detail} />
+          <Route exact path="/recipe" component={CreateRecipe} />
         </Switch>
       </div>
     </BrowserRouter>

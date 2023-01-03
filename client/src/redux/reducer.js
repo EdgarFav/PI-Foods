@@ -1,8 +1,10 @@
-import { FILTER_BY_DIETS, GET_ALL_RECIPES, ORDER_BY_HS, ORDER_BY_NAME } from "./actions";
+import { FILTER_BY_DIETS, GET_ALL_RECIPES, GET_RECIPE_BY_QUERY, ORDER_BY_HS, ORDER_BY_NAME, GET_DIETS, GET_DETAILS_BY_ID } from "./actions";
 
 
 const initialState = {
     recipes: [],
+    diets: [],
+    cardDetails: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -15,11 +17,18 @@ function rootReducer(state = initialState, action) {
             }
 
         case FILTER_BY_DIETS:
-            const allRecipes = state.recipes
-            const dietsFiltered = action.payload === 'All' ? allRecipes : allRecipes.filter(recipe => recipe.diets === action.payload)
-            return {
-                ...state,
-                recipes: dietsFiltered
+            const result = state.recipes;
+            if (action.payload === "all") {
+                return {
+                    ...state,
+                    recipes: result,
+                }
+            } else {
+                const dietsFiltered = result.filter(recipe => recipe.diets?.some((diet) => diet === action.payload))
+                return {
+                    ...state,
+                    recipes: dietsFiltered,
+                }
             }
 
         case ORDER_BY_NAME:
@@ -71,7 +80,25 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 recipes: sortedElementsHS
             }
-
+        case GET_RECIPE_BY_QUERY:
+            return {
+                ...state,
+                recipes: action.payload
+            }
+        case GET_DIETS:
+            return {
+                ...state,
+                diets: action.payload
+            }
+        case 'POST_RECIPE':
+            return {
+                ...state,
+            }
+        case GET_DETAILS_BY_ID:
+            return {
+                ...state,
+                cardDetails: action.payload
+            }
         default:
             return { ...state }
     }
