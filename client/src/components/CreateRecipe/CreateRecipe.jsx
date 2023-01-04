@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { postRecipe, getDiets } from "../../redux/actions"
 import { useDispatch, useSelector } from "react-redux"
+import "./CreateRecipe.css"
 
 const CreateRecipe = () => {
     const history = useHistory()
@@ -45,7 +46,7 @@ const CreateRecipe = () => {
         } if (!input.summary) {
             errors.summary = "El campo resumen es requerido";
         } if (input.healthscore > 100 || input.healthscore < 0) {
-            errors.healthscore = "El healt score debe ser entre 0 y 100";
+            errors.healthscore = "El health score debe ser entre 0 y 100";
         }
 
         return errors;
@@ -131,50 +132,57 @@ const CreateRecipe = () => {
 
     return (
         <div>
-            <Link to="/home"><button>Regresar a Home</button></Link>
+            <div className="botondevolver">
+                <Link to="/home"><button>Regresar</button></Link>
+            </div>
             <h1>Crea tu propia receta📝</h1>
 
 
             <form onSubmit={e => { handleSubmit(e) }}>
-                <section>
-                    <div>
-                        <label>Nombre: </label>
-                        <input
-                            type="text"
-                            value={input.name}
-                            name="name"
-                            autoComplete="off"
-                            onChange={e => handleInputChange(e)}
-                        />
+                <section className="inputsycheck">
+                    <div className="inputstexto">
+                        <div>
+                            <label>Nombre: </label>
+                            <input
+                                className="inputdata"
+                                type="text"
+                                value={input.name}
+                                name="name"
+                                autoComplete="off"
+                                onChange={e => handleInputChange(e)}
+                            />
+                            {errors.name && (<p className="error">{errors.name}</p>)}
+                        </div>
+                        <div>
+                            <label>Resumen: </label>
+                            <textarea
+                                className="inputdata"
+                                value={input.summary}
+                                name="summary"
+                                rows="5" cols="40"
+                                onChange={e => handleInputChange(e)}
+                            />
+                            {errors.summary && (<p className="error">{errors.summary}</p>)}
+                        </div>
+                        <div>
+                            <label>Health Score: </label>
+                            <input
+                                className="inputdata"
+                                type="number"
+                                value={input.healthscore}
+                                name="healthscore"
+                                onChange={e => handleInputChange(e)}
+                            />
+                            {errors.healthscore && (<p className="error">{errors.healthscore}</p>)}
+                        </div>
                     </div>
-                    {errors.name && (<p>{errors.name}</p>)}
-                    <div>
-                        <label>Resumen: </label>
-                        <textarea
-                            value={input.summary}
-                            name="summary"
-                            rows="5" cols="40"
-                            onChange={e => handleInputChange(e)}
-                        />
-                    </div>
-                    {errors.summary && (<p>{errors.summary}</p>)}
-                    <div>
-                        <label>Health Score: </label>
-                        <input
-                            type="number"
-                            value={input.healthscore}
-                            name="healthscore"
-                            onChange={e => handleInputChange(e)}
-                        />
-                    </div>
-                    {errors.healthscore && (<p>{errors.healthscore}</p>)}
 
-                    <div>
-                        <fieldset>
-                            <legend>Elija uno o más tipos de dietas</legend>
+                    <div className="containercheck">
+                        <fieldset className="orgcontcheck">
+                            <legend>Elija al menos uno o más tipos de dietas</legend>
                             {diets.map(diet => {
                                 return (
-                                    <div>
+                                    <div className="organizadorcheck">
                                         <p>
                                             {diet.name}
                                         </p>
@@ -186,8 +194,8 @@ const CreateRecipe = () => {
                     </div>
                 </section>
 
-                <section>
-                    <div>
+                <section className="stepyrender">
+                    <div className="stepbystep">
                         <legend>Pasos de preparacion: </legend>
                         <textarea value={infoSteps} name="name" onChange={e => setInfoSteps(e.target.value)} row="10" col="60" />
                         <div>
@@ -197,7 +205,7 @@ const CreateRecipe = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="renderstepbystep">
                         <ol>
                             {input.steps.map(step => {
                                 return (<>
@@ -209,7 +217,7 @@ const CreateRecipe = () => {
                     </div>
                 </section>
 
-                <div>
+                <div className="mandareceta">
                     <button type="submit">CREAR RECETA</button>
                 </div>
 
