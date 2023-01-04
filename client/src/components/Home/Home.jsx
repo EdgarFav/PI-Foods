@@ -73,19 +73,19 @@ function Home() {
             </div>
 
             <div className="filterselects">
-                <select onChange={e => handleFilterDiets(e)}>
+                <select className="classic" onChange={e => handleFilterDiets(e)}>
                     <option value="all">Todos los tipos de dietas</option>
                     {diets?.map(diet => {
                         return (
                             <option value={diet.name} key={diet.id}>{diet.name}</option>)
                     })}
                 </select>
-                <select onChange={e => handleOrderName(e)}>
+                <select className="classic" onChange={e => handleOrderName(e)}>
                     <option value=''>Ordenar alfabeticamente</option>
                     <option value='asc'>A - Z</option>
                     <option value='desc'>Z - A</option>
                 </select>
-                <select onChange={e => handleOrderHS(e)}>
+                <select className="classic" onChange={e => handleOrderHS(e)}>
                     <option value=''>Ordenar por Health Score</option>
                     <option value='hmax'>Health Score maximo</option>
                     <option value='hmin'>Health Score minimo</option>
@@ -98,10 +98,10 @@ function Home() {
                     paginado={paginado}
                 />
             </div>
-            <div>
+            <div className="cards">
                 {currentRecipes?.map((recipe) => {
                     return (
-                        <div className="cards" key={recipe.id}>
+                        <div key={recipe.id}>
                             <Link to={"/home/" + recipe.id} style={{ textDecoration: "none" }}>
                                 <Card key={recipe.id} name={recipe.name} image={recipe.image} diets={recipe.diets} healthscore={recipe.healthscore} />
                             </Link>

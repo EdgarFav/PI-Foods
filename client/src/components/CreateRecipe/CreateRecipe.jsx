@@ -135,7 +135,7 @@ const CreateRecipe = () => {
             <div className="botondevolver">
                 <Link to="/home"><button>Regresar</button></Link>
             </div>
-            <h1>Crea tu propia receta📝</h1>
+            <h1 className="titleform">Crea tu propia receta📝</h1>
 
 
             <form onSubmit={e => { handleSubmit(e) }}>
