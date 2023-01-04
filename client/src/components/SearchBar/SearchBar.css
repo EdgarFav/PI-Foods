@@ -48,3 +48,9 @@
 .search__button:hover {
     cursor: pointer;
 }
+
+.search__icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+}

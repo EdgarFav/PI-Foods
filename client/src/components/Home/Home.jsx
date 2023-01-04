@@ -68,11 +68,11 @@ function Home() {
             <div className="buttontopcont">
                 <Link to="/"><button>Inicio</button></Link>
                 <button onClick={e => { handleClick(e) }}>Restablecer pagina</button>
-                <SearchBar />
                 <Link to="/recipe"><button>Crea tu propia receta🥗</button></Link>
             </div>
 
             <div className="filterselects">
+                <SearchBar />
                 <select className="classic" onChange={e => handleFilterDiets(e)}>
                     <option value="all">Todos los tipos de dietas</option>
                     {diets?.map(diet => {
