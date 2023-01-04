@@ -6,6 +6,8 @@ import { getALLRecipes, filterByTypeDiets, orderByName, orderByHS, getDiets } fr
 import Paginado from "../Paginado/Paginado"
 import Card from "../RecipeCard/Card"
 import SearchBar from "../SearchBar/SearchBar"
+import "./Home.css"
+
 
 function Home() {
 
@@ -63,10 +65,14 @@ function Home() {
 
     return (
         <div>
-            <h1>Pagina de recetas</h1>
-            <button onClick={e => { handleClick(e) }}>Reset page</button>
-            <Link to="/recipe"><button>Create recipe🥗</button></Link>
-            <div>
+            <div className="buttontopcont">
+                <Link to="/"><button>Inicio</button></Link>
+                <button onClick={e => { handleClick(e) }}>Restablecer pagina</button>
+                <SearchBar />
+                <Link to="/recipe"><button>Crea tu propia receta🥗</button></Link>
+            </div>
+
+            <div className="filterselects">
                 <select onChange={e => handleFilterDiets(e)}>
                     <option value="all">Todos los tipos de dietas</option>
                     {diets?.map(diet => {
@@ -84,28 +90,26 @@ function Home() {
                     <option value='hmax'>Health Score maximo</option>
                     <option value='hmin'>Health Score minimo</option>
                 </select>
-                <div>
-                    <SearchBar />
-                </div>
-                <div>
-                    <Paginado
-                        recipesPerPage={recipesPerPage}
-                        allRecipes={allRecipes.length}
-                        paginado={paginado}
-                    />
-                </div>
-                <div>
-                    {currentRecipes?.map((recipe) => {
-                        return (
-                            <div key={recipe.id}>
-                                <Link to={"/home/" + recipe.id}>
-                                    <Card key={recipe.id} name={recipe.name} image={recipe.image} diets={recipe.diets} healthscore={recipe.healthscore} />
-                                </Link>
-                            </div>
-                        )
-                    })}
-                </div>
             </div>
+            <div>
+                <Paginado className="numspags"
+                    recipesPerPage={recipesPerPage}
+                    allRecipes={allRecipes.length}
+                    paginado={paginado}
+                />
+            </div>
+            <div>
+                {currentRecipes?.map((recipe) => {
+                    return (
+                        <div className="cards" key={recipe.id}>
+                            <Link to={"/home/" + recipe.id} style={{ textDecoration: "none" }}>
+                                <Card key={recipe.id} name={recipe.name} image={recipe.image} diets={recipe.diets} healthscore={recipe.healthscore} />
+                            </Link>
+                        </div>
+                    )
+                })}
+            </div>
+
         </div>
     )
 
