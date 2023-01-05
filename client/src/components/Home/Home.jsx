@@ -72,7 +72,6 @@ function Home() {
             </div>
 
             <div className="filterselects">
-                <SearchBar />
                 <select className="classic" onChange={e => handleFilterDiets(e)}>
                     <option value="all">Todos los tipos de dietas</option>
                     {diets?.map(diet => {
@@ -90,9 +89,10 @@ function Home() {
                     <option value='hmax'>Health Score maximo</option>
                     <option value='hmin'>Health Score minimo</option>
                 </select>
+                <SearchBar />
             </div>
             <div>
-                <Paginado className="numspags"
+                <Paginado
                     recipesPerPage={recipesPerPage}
                     allRecipes={allRecipes.length}
                     paginado={paginado}
