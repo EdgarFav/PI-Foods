@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCardDetails } from "../../redux/actions";
+import { getCardDetails, limpiarEstadoDetail } from "../../redux/actions";
 import "./Detail.css"
 
 function Detail() {
@@ -12,6 +12,7 @@ function Detail() {
 
     useEffect(() => {
         dispatch(getCardDetails(id))
+        return () => dispatch(limpiarEstadoDetail())
     }, [dispatch, id])
 
     if (card[0]) {

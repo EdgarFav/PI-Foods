@@ -1,4 +1,4 @@
-import { FILTER_BY_DIETS, GET_ALL_RECIPES, GET_RECIPE_BY_QUERY, ORDER_BY_HS, ORDER_BY_NAME, GET_DIETS, GET_DETAILS_BY_ID } from "./actions";
+import { FILTER_BY_DIETS, GET_ALL_RECIPES, GET_RECIPE_BY_QUERY, ORDER_BY_HS, ORDER_BY_NAME, GET_DIETS, GET_DETAILS_BY_ID, LIMPIAR_ESTADO_DETAIL, } from "./actions";
 
 
 const initialState = {
@@ -99,8 +99,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 cardDetails: action.payload
             }
+        case LIMPIAR_ESTADO_DETAIL:
+            return {
+                ...state,
+                cardDetails: initialState.cardDetails
+            }
+
         default:
-            return { ...state }
+            return state;
     }
 }
 

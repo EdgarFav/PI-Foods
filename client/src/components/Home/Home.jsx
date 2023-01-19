@@ -43,22 +43,16 @@ function Home() {
     }
 
     function handleFilterDiets(e) {
-        // e.preventDefault()
-        //dispatch(getALLRecipes())
         dispatch(filterByTypeDiets(e.target.value))
-        console.log(e.target.value);
-        //setCurrentPage(1)
     }
 
     function handleOrderName(e) {
-        // e.preventDefault()
         dispatch(orderByName(e.target.value))
         setCurrentPage(1)
         setOrden(`Ordenado ${e.target.value}`) //Seteamos el estado local "Orden" para que haga el reenderizado
     }
 
     function handleOrderHS(e) {
-        // e.preventDefault();
         dispatch(orderByHS(e.target.value))
         setOrden(`Ordenado ${e.target.value}`)
     }
@@ -91,6 +85,9 @@ function Home() {
                 </select>
                 <SearchBar />
             </div>
+            {/* <div>
+                <Loader />
+            </div> */}
             <div>
                 <Paginado
                     recipesPerPage={recipesPerPage}
