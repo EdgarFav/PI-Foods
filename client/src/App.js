@@ -5,7 +5,7 @@ import CreateRecipe from './components/CreateRecipe/CreateRecipe.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://pi-foods-production-08f8.up.railway.app/'
 
 function App() {
   return (
