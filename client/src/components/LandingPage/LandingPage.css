@@ -1,40 +1,49 @@
+.backgroung_landing {
+  background-image: url("https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .contlanding {
-    display: flex;
-    background: rgba(255, 255, 255, 0.19);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2.2px);
-    -webkit-backdrop-filter: blur(2.2px);
-    display: flex;
-    height: 99vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.2px);
+  -webkit-backdrop-filter: blur(2.2px);
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .enterbutton {
-    color: #ece8e8;
-    padding: 0.7em 1.7em;
-    font-size: 18px;
-    border-radius: 0.5em;
-    background: #222020;
-    border: 1px solid #e8e8e8;
-    transition: all .3s;
-    box-shadow: 6px 6px 12px #c5c5c5,
-        -6px -6px 12px #ffffff;
-    cursor: pointer;
+  color: #ece8e8;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #222020;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  cursor: pointer;
 }
-span{
-font-size: 100px;
-display: block;
-font-family: monospace;
-white-space: nowrap;
-width: 23ch;
-animation: typing 2s steps(23),
-blink .5s infinite step-end alternate; 
-overflow: hidden;
+span {
+  font-size: 100px;
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  width: 23ch;
+  animation: typing 2s steps(23), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
 }
-@keyframes typing{
-from {width: 0;}
+@keyframes typing {
+  from {
+    width: 0;
+  }
 }
-@keyframes blink{
-50% {border-color: transparent;}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }

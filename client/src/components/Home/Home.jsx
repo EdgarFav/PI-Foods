@@ -58,7 +58,7 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="background_home">
             <div className="buttontopcont">
                 <Link to="/"><button>Inicio</button></Link>
                 <button onClick={e => { handleClick(e) }}>Restablecer pagina</button>
