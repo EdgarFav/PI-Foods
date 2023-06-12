@@ -3,12 +3,8 @@ import "./Loader.css"
 
 function Loader() {
     return (
-        <div class="container">
-            <div class="cargando">
-                <div class="pelotas"></div>
-                <div class="pelotas"></div>
-                <div class="pelotas"></div>
-            </div>
+        <div>
+            <img src="https://cdn.dribbble.com/users/13754/screenshots/6628859/egg-beater-loader.gif" alt="loader" />
         </div>
     )
 }

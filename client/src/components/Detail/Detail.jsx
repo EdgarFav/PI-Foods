@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCardDetails, limpiarEstadoDetail } from "../../redux/actions";
+import Loader from "../Loader/Loader";
 import "./Detail.css"
 
 function Detail() {
@@ -15,9 +16,10 @@ function Detail() {
         return () => dispatch(limpiarEstadoDetail())
     }, [dispatch, id])
 
-    if (card[0]) {
-        return (
-            <div className="background_detail">
+
+    return (
+        <div className="background_detail">
+            {card.length > 0 ?
                 <div className="detailscontainer">
                     <div className="botondevolver">
                         <Link to={"/home"}><button>Volver a Home</button></Link>
@@ -48,14 +50,9 @@ function Detail() {
                     </div>
 
                 </div>
-            </div>
-        )
-    } else {
-        return (
-            <p>Cargando...</p>
-        )
-    }
-
+                : <Loader />}
+        </div>
+    )
 }
 
 export default Detail

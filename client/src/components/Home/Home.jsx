@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
-import { getALLRecipes, filterByTypeDiets, orderByName, orderByHS, getDiets } from "../../redux/actions"
+import { getALLRecipes, filterByTypeDiets, orderByName, orderByHS, getDiets, } from "../../redux/actions"
 import Paginado from "../Paginado/Paginado"
 import Card from "../RecipeCard/Card"
 import SearchBar from "../SearchBar/SearchBar"
+import Loader from "../Loader/Loader"
 import "./Home.css"
 
 
@@ -14,8 +15,8 @@ function Home() {
     const dispatch = useDispatch()
     const allRecipes = useSelector(state => state.recipes) //Esto es el equivalente a trabajar con mapStateToProps 
     //y pasarle como props el parametro recipes ----> revisar como se hace
-    const [orden, setOrden] = useState("") //Creamos un estado local para el renderizado del ordenamiento
     const diets = useSelector(state => state.diets)
+    const [orden, setOrden] = useState("") //Creamos un estado local para el renderizado del ordenamiento
 
     //----------Creamos estados locales para el paginado-----------
     const [currentPage, setCurrentPage] = useState(1) //Aqui definimos la pagina de inicio
@@ -59,6 +60,7 @@ function Home() {
 
     return (
         <div className="background_home">
+
             <div className="buttontopcont">
                 <Link to="/"><button>Inicio</button></Link>
                 <button onClick={e => { handleClick(e) }}>Restablecer pagina</button>
@@ -85,9 +87,6 @@ function Home() {
                 </select>
                 <SearchBar />
             </div>
-            {/* <div>
-                <Loader />
-            </div> */}
             <div>
                 <Paginado
                     recipesPerPage={recipesPerPage}
@@ -95,20 +94,20 @@ function Home() {
                     paginado={paginado}
                 />
             </div>
-            <div className="cards">
-                {currentRecipes?.map((recipe) => {
-                    return (
-                        <div key={recipe.id}>
-                            <Link to={"/home/" + recipe.id} style={{ textDecoration: "none" }}>
-                                <Card key={recipe.id} name={recipe.name} image={recipe.image} diets={recipe.diets} healthscore={recipe.healthscore} />
-                            </Link>
-                        </div>
-                    )
-                })}
-            </div>
-
+            {allRecipes.length > 0 ?
+                <div className="cards">
+                    {currentRecipes?.map((recipe) => {
+                        return (
+                            <div key={recipe.id}>
+                                <Link to={"/home/" + recipe.id} style={{ textDecoration: "none" }}>
+                                    <Card key={recipe.id} name={recipe.name} image={recipe.image} diets={recipe.diets} healthscore={recipe.healthscore} />
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
+                : <Loader />}
         </div>
     )
-
 }
 export default Home
