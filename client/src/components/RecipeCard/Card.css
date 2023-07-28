@@ -40,12 +40,14 @@
     
 }
 .cardtitle{
-    color: #edf2f4;
-    text-shadow: 5px 5px 5px rgb(29, 29, 29);
+    /* color: #edf2f4; */
+    color:rgb(15, 15, 15);
+    /* text-shadow: 5px 5px 5px rgb(29, 29, 29); */
 }
 
 .carddescr{
-    color: #dad7cd;
-    text-shadow: 5px 5px 5px rgb(15, 15, 15);
+    /* color: #dad7cd; */
+    color:rgb(15, 15, 15);
+    /* text-shadow: 5px 5px 5px rgb(15, 15, 15); */
     margin-bottom: 5px;
 }

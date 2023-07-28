@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom"
 import { postRecipe, getDiets } from "../../redux/actions"
 import { useDispatch, useSelector } from "react-redux"
 import "./CreateRecipe.css"
+import Footer from "../Footer/Footer"
 
 const CreateRecipe = () => {
     const history = useHistory()
@@ -131,13 +132,11 @@ const CreateRecipe = () => {
 
 
     return (
-        <div>
-            <div className="botondevolver">
+        <div className="background">
+            <div className="buttonback">
                 <Link to="/home"><button>Regresar</button></Link>
             </div>
-            <h1 className="titleform">Crea tu propia receta📝</h1>
-
-
+            <h1 className="titleform">Crea tu propia receta</h1>
             <form onSubmit={e => { handleSubmit(e) }}>
                 <section className="inputsycheck">
                     <div className="inputstexto">
@@ -222,8 +221,7 @@ const CreateRecipe = () => {
                 </div>
 
             </form>
-
-
+            <Footer/>
         </div>
     )
 }

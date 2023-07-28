@@ -9,7 +9,7 @@ function LandingPage() {
             <div className="contlanding">
                 <span>Bienvenido a Wiki Foods</span>
                 <Link to="/home">
-                    <button className="enterbutton">Iniciar</button>
+                    <button className="enter">Iniciar</button>
                 </Link>
             </div>
         </div>

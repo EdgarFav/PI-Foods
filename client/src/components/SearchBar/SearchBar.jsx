@@ -27,7 +27,7 @@ function SearchBar() {
                 <input
                     className="search__input"
                     type="text"
-                    placeholder="Buscar..."
+                    placeholder="Buscar por nombre..."
                     onChange={e => handleInputChange(e)}
                 />
                 <button className="search__button" onClick={e => handleSubmit(e)} type="submit">

@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCardDetails, limpiarEstadoDetail } from "../../redux/actions";
 import Loader from "../Loader/Loader";
+import Footer from "../Footer/Footer";
 import "./Detail.css"
 
 function Detail() {
@@ -21,15 +22,15 @@ function Detail() {
         <div className="background_detail">
             {card.length > 0 ?
                 <div className="detailscontainer">
-                    <div className="botondevolver">
+                    <div className="buttonhome">
                         <Link to={"/home"}><button>Volver a Home</button></Link>
                     </div>
                     <h2 className="titlerecipe">{card[0].name}</h2>
                     <div className="imgyresumen">
-                        <div className="imgrecipe">
+                        <div >
                             <img src={card[0].image} alt="img not found" width="350px" height="250px" />
                         </div>
-                        <div className="resumenrecipe">
+                        <div >
                             <h4>Resumen:</h4><p>{card[0].summary}</p>
                         </div>
                     </div>
@@ -51,6 +52,7 @@ function Detail() {
 
                 </div>
                 : <Loader />}
+                <Footer/>
         </div>
     )
 }

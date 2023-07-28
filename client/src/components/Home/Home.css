@@ -1,6 +1,11 @@
 .background_home {
-  background-color: #232323;
-  height: 230vh;
+  background-color:#fff;
+}
+
+.navbar{
+  background-color: #202C59;
+  box-shadow: 4px 5px 10px black;
+  /* box-shadow: 1px 0 5px #000; */
 }
 .cards {
   display: flex;
@@ -11,22 +16,32 @@
   justify-items: stretch;
 }
 
-.buttontopcont {
+.buttoncreate {
   display: flex;
   justify-content: space-around;
   width: auto;
   max-width: 100%;
+  padding: 1em;
 }
 
-.buttontopcont button {
-  padding: 1.3em 3em;
+.button-reset-inicio {
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+  max-width: 100%;
+  padding: 1em;
+  margin: 1em;
+}
+
+.buttoncreate button, .button-reset-inicio button {
+  padding: 1.3em 1em;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  font-weight: 500;
+  font-weight: 900;
   color: #000;
-  background-color: #fff;
-  border: none;
+  background-image: linear-gradient(to right, #DFF3E4, #7180B9);;
+  border: 1px solid #7180B9;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
@@ -34,14 +49,15 @@
   outline: none;
 }
 
-.buttontopcont button:hover {
+
+.buttoncreate button:hover, .button-reset-inicio button:hover {
   background-color: #a3e9cd;
   box-shadow: 0px 15px 20px rgba(154, 126, 44, 0.867);
-  color: #fff;
+  /* color: #fff; */
   transform: translateY(5px);
 }
 
-.buttontopcont button:active {
+.buttoncreate button:active, .button-reset-inicio button:active {
   transform: translateY(-1px);
 }
 
@@ -56,8 +72,8 @@
 select {
   /* styling */
   background-color: white;
-  border: thin solid blue;
-  border-radius: 4px;
+  border: thin solid black;
+  border-radius: 13px;
   display: inline-block;
   font: inherit;
   line-height: 1.5em;
@@ -76,7 +92,7 @@ select {
 .classic {
   background-image: linear-gradient(45deg, transparent 50%, blue 50%),
     linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, skyblue, skyblue);
+    linear-gradient(to right, #DFF3E4, #7180B9);
   background-position: calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px), 100% 0;
   background-size: 5px 5px, 5px 5px, 2.5em 2.5em;

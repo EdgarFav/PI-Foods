@@ -17,7 +17,7 @@
   justify-content: center;
   flex-direction: column;
 }
-.enterbutton {
+.enter {
   color: #ece8e8;
   padding: 0.7em 1.7em;
   font-size: 18px;
@@ -28,6 +28,7 @@
   box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   cursor: pointer;
 }
+
 span {
   font-size: 100px;
   display: block;

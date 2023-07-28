@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Swal from 'sweetalert2'
 import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
@@ -7,6 +8,7 @@ import Paginado from "../Paginado/Paginado"
 import Card from "../RecipeCard/Card"
 import SearchBar from "../SearchBar/SearchBar"
 import Loader from "../Loader/Loader"
+import Footer from "../Footer/Footer"
 import "./Home.css"
 
 
@@ -36,6 +38,15 @@ function Home() {
     }, [dispatch]) //Lleva como segundo parametro un arreglo de dependencias para que no ejecute un loop infinito
     //con el useEffect
 
+    // useEffect(() => {
+    //     mostrarAlerta()
+    // }, [])
+
+    // const mostrarAlerta = () => {
+    //     Swal.fire(
+    //         'The internet', 'That thing', 'info'
+    //     )
+    // }
 
     function handleClick(e) {
         e.preventDefault()
@@ -60,40 +71,41 @@ function Home() {
 
     return (
         <div className="background_home">
+            <div className="navbar">
 
-            <div className="buttontopcont">
+                <div className="filterselects">
+                    <select className="classic" onChange={e => handleFilterDiets(e)}>
+                        <option value="all">Todas las dietas</option>
+                        {diets?.map(diet => {
+                            return (
+                                <option value={diet.name} key={diet.id}>{diet.name}</option>)
+                        })}
+                    </select>
+                    <select className="classic" onChange={e => handleOrderName(e)}>
+                        <option value=''>Nombre</option>
+                        <option value='asc'>A - Z</option>
+                        <option value='desc'>Z - A</option>
+                    </select>
+                    <select className="classic" onChange={e => handleOrderHS(e)}>
+                        <option value=''>Health Score</option>
+                        <option value='hmax'>Health Score maximo</option>
+                        <option value='hmin'>Health Score minimo</option>
+                    </select>
+                    <SearchBar />
+                    <div className="buttoncreate">
+                        <Link to="/recipe"><button>Crear receta</button></Link>
+                    </div>
+                </div>
+            </div>
+            <div className="button-reset-inicio">
                 <Link to="/"><button>Inicio</button></Link>
                 <button onClick={e => { handleClick(e) }}>Restablecer pagina</button>
-                <Link to="/recipe"><button>Crea tu propia receta🥗</button></Link>
             </div>
-
-            <div className="filterselects">
-                <select className="classic" onChange={e => handleFilterDiets(e)}>
-                    <option value="all">Todos los tipos de dietas</option>
-                    {diets?.map(diet => {
-                        return (
-                            <option value={diet.name} key={diet.id}>{diet.name}</option>)
-                    })}
-                </select>
-                <select className="classic" onChange={e => handleOrderName(e)}>
-                    <option value=''>Ordenar alfabeticamente</option>
-                    <option value='asc'>A - Z</option>
-                    <option value='desc'>Z - A</option>
-                </select>
-                <select className="classic" onChange={e => handleOrderHS(e)}>
-                    <option value=''>Ordenar por Health Score</option>
-                    <option value='hmax'>Health Score maximo</option>
-                    <option value='hmin'>Health Score minimo</option>
-                </select>
-                <SearchBar />
-            </div>
-            <div>
-                <Paginado
-                    recipesPerPage={recipesPerPage}
-                    allRecipes={allRecipes.length}
-                    paginado={paginado}
-                />
-            </div>
+            <Paginado
+                recipesPerPage={recipesPerPage}
+                allRecipes={allRecipes.length}
+                paginado={paginado}
+            />
             {allRecipes.length > 0 ?
                 <div className="cards">
                     {currentRecipes?.map((recipe) => {
@@ -107,6 +119,7 @@ function Home() {
                     })}
                 </div>
                 : <Loader />}
+            <Footer />
         </div>
     )
 }
