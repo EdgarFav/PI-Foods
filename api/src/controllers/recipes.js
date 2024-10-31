@@ -1,6 +1,6 @@
 const { Recipe, Diet } = require('../db')
 const axios = require("axios")
-const API_KEY = "bc37769f394a40e4908e80b97d1f9c00"
+const API_KEY = "203993d6a70c44258c058b72065ab08c"
 
 
 const getApiRecipes = async () => {
