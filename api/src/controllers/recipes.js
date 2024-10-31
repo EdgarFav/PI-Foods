@@ -6,7 +6,8 @@ const API_KEY = "203993d6a70c44258c058b72065ab08c"
 const getApiRecipes = async () => {
     try {
 
-        const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`) //traemos toda la data de las recetas en la API
+        const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=203993d6a70c44258c058b72065ab08c&number=100&addRecipeInformation=true`) //traemos toda la data de las recetas en la API
+        console.log(apiData)
 
         const apiRecipes = await apiData.data.results.map(e => {
             return {
