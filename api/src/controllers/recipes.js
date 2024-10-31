@@ -1,11 +1,12 @@
 const { Recipe, Diet } = require('../db')
 const axios = require("axios")
+const API_KEY = "bc37769f394a40e4908e80b97d1f9c00"
 
 
 const getApiRecipes = async () => {
     try {
 
-        const apiData = await axios.get("https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5") //traemos toda la data de las recetas en la API
+        const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`) //traemos toda la data de las recetas en la API
 
         const apiRecipes = await apiData.data.results.map(e => {
             return {
