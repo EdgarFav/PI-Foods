@@ -8,6 +8,7 @@ const getApiRecipes = async () => {
     try {
 
         const apiData = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`) //traemos toda la data de las recetas en la API
+        // console.log(apiData);
 
         const apiRecipes = await apiData.data.results.map(e => {
             return {
