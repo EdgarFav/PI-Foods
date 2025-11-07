@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import Swal from 'sweetalert2'
 import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
