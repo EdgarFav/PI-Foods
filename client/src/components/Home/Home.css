@@ -27,19 +27,25 @@
 
 .buttoncreate {
   display: flex;
-  justify-content: space-around;
-  width: auto;
-  max-width: 100%;
-  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 .button-reset-inicio {
   display: flex;
-  justify-content: space-evenly;
-  width: auto;
-  max-width: 100%;
-  padding: 1em;
-  margin: 1em;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .buttoncreate button, .button-reset-inicio button {
+    padding: 0.8em 1.5em;
+    font-size: 0.85rem;
+  }
 }
 
 .buttoncreate button, .button-reset-inicio button {
@@ -71,8 +77,16 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: auto;
-  min-width: 30vh;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .filterselects {
+    justify-content: center;
+  }
 }
 
 select {
