@@ -15,7 +15,7 @@ function Home() {
 
     const dispatch = useDispatch()
     const allRecipes = useSelector(state => state.recipes) //Esto es el equivalente a trabajar con mapStateToProps 
-    //y pasarle como props el parametro recipes ----> revisar como se hace
+    //y pasarle como props el parametro recipes 
     const diets = useSelector(state => state.diets)
     const [orden, setOrden] = useState("") //Creamos un estado local para el renderizado del ordenamiento
 
@@ -37,15 +37,7 @@ function Home() {
     }, [dispatch]) //Lleva como segundo parametro un arreglo de dependencias para que no ejecute un loop infinito
     //con el useEffect
 
-    // useEffect(() => {
-    //     mostrarAlerta()
-    // }, [])
-
-    // const mostrarAlerta = () => {
-    //     Swal.fire(
-    //         'The internet', 'That thing', 'info'
-    //     )
-    // }
+    
 
     function handleClick(e) {
         e.preventDefault()
