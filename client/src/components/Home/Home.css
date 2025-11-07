@@ -1,19 +1,28 @@
 .background_home {
-  background-color:#fff;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
 }
 
-.navbar{
-  background-color: #202C59;
-  box-shadow: 4px 5px 10px black;
-  /* box-shadow: 1px 0 5px #000; */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 20px 20px;
+  padding: 1rem 0;
 }
 .cards {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  flex-wrap: wrap;
-  margin: 10px;
-  justify-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
 }
 
 .buttoncreate {
@@ -34,31 +43,28 @@
 }
 
 .buttoncreate button, .button-reset-inicio button {
-  padding: 1.3em 1em;
-  font-size: 12px;
+  padding: 0.9em 1.8em;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 900;
-  color: #000;
-  background-image: linear-gradient(to right, #DFF3E4, #7180B9);;
-  border: 1px solid #7180B9;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   outline: none;
 }
 
-
 .buttoncreate button:hover, .button-reset-inicio button:hover {
-  background-color: #a3e9cd;
-  box-shadow: 0px 15px 20px rgba(154, 126, 44, 0.867);
-  /* color: #fff; */
-  transform: translateY(5px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(245, 87, 108, 0.5);
 }
 
 .buttoncreate button:active, .button-reset-inicio button:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(0.98);
 }
 
 .filterselects {
@@ -70,42 +76,47 @@
 }
 
 select {
-  /* styling */
-  background-color: white;
-  border: thin solid black;
-  border-radius: 13px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
   display: inline-block;
   font: inherit;
   line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-
-  /* reset */
-
-  margin: 20px 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  padding: 0.7em 2.5em 0.7em 1.2em;
+  margin: 10px 5px;
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #4a5568;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .classic {
-  background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-    linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, #DFF3E4, #7180B9);
-  background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-image: linear-gradient(45deg, transparent 50%, #667eea 50%),
+    linear-gradient(135deg, #667eea 50%, transparent 50%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
+  background-position: calc(100% - 18px) calc(1em + 2px),
+    calc(100% - 13px) calc(1em + 2px), 100% 0;
   background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
+}
+
+select.classic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 select.classic:focus {
   background-image: linear-gradient(45deg, white 50%, transparent 50%),
     linear-gradient(135deg, transparent 50%, white 50%),
-    linear-gradient(to right, gray, gray);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+    linear-gradient(to right, #f093fb, #f5576c);
+  background-position: calc(100% - 13px) 1em, calc(100% - 18px) 1em, 100% 0;
   background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
-  border-color: grey;
+  border-color: #f5576c;
   outline: 0;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.2);
 }

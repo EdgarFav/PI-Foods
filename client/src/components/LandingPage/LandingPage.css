@@ -1,50 +1,115 @@
 .backgroung_landing {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroung_landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url("https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
 }
 
 .contlanding {
-  display: flex;
-  background: rgba(255, 255, 255, 0.19);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2.2px);
-  -webkit-backdrop-filter: blur(2.2px);
+  position: relative;
+  z-index: 1;
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-.enter {
-  color: #ece8e8;
-  padding: 0.7em 1.7em;
-  font-size: 18px;
-  border-radius: 0.5em;
-  background: #222020;
-  border: 1px solid #e8e8e8;
-  transition: all 0.3s;
-  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  cursor: pointer;
+  gap: 3rem;
 }
 
-span {
-  font-size: 100px;
-  display: block;
-  font-family: monospace;
-  white-space: nowrap;
-  width: 23ch;
-  animation: typing 2s steps(23), blink 0.5s infinite step-end alternate;
+.contlanding span {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+  animation: fadeInUp 1s ease-out;
+  white-space: normal;
+  max-width: 90%;
+}
+
+.enter {
+  color: #ffffff;
+  padding: 1.2em 3em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
   overflow: hidden;
 }
-@keyframes typing {
+
+.enter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.enter:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+}
+
+.enter:hover::before {
+  opacity: 1;
+}
+
+.enter:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.enter span {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInUp {
   from {
-    width: 0;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@keyframes blink {
-  50% {
-    border-color: transparent;
+
+@media (max-width: 768px) {
+  .contlanding {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .enter {
+    padding: 1em 2.5em;
+    font-size: 1rem;
   }
 }
