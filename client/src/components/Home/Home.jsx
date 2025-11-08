@@ -17,11 +17,11 @@ function Home() {
     const allRecipes = useSelector(state => state.recipes) //Esto es el equivalente a trabajar con mapStateToProps 
     //y pasarle como props el parametro recipes 
     const diets = useSelector(state => state.diets)
-    const [orden, setOrden] = useState("") //Creamos un estado local para el renderizado del ordenamiento
+    const [, setOrden] = useState("") //Creamos un estado local para el renderizado del ordenamiento
 
     //----------Creamos estados locales para el paginado-----------
     const [currentPage, setCurrentPage] = useState(1) //Aqui definimos la pagina de inicio
-    const [recipesPerPage, setRecipesPerPage] = useState(9) //Aqui definimos los elementos que mostraremos por pagina
+    const [recipesPerPage] = useState(9) //Aqui definimos los elementos que mostraremos por pagina
     const indexOfLastRecipe = currentPage * recipesPerPage //9
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage //0
     const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe) //divide el array de recipes(estado global) con los indices (0,9)
