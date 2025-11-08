@@ -1,9 +1,10 @@
 import React from 'react'
+import './Footer.css'
 
 export default function Footer() {
   return (
-    <div>
-      <h2>Creado con❤️Edgar Favela</h2>
+    <div className="footer">
+      <h2 className="footer-text">Creado con ❤️ Edgar Favela</h2>
     </div>
   )
 }

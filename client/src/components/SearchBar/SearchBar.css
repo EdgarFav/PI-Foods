@@ -1,56 +1,74 @@
-.searchcontainer{
-    margin: 7px;
+.searchcontainer {
+    margin: 10px;
 }
+
 .search {
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    text-align: center;
+    justify-content: center;
+    position: relative;
 }
 
 .search__input {
     font-family: inherit;
-    font-size: inherit;
-    background-color: #f4f2f2;
-    border: none;
-    color: #646464;
-    padding: 0.7rem 1rem;
-    border-radius: 30px;
-    width: 12em;
-    transition: all ease-in-out .5s;
-    margin-right: -2rem;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #4a5568;
+    padding: 0.8rem 3rem 0.8rem 1.2rem;
+    border-radius: 50px;
+    width: 250px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.search__input:hover,
-.search__input:focus {
-    box-shadow: 0 0 1em #00000013;
+.search__input:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .search__input:focus {
     outline: none;
-    background-color: #f0eeee;
+    background-color: #ffffff;
+    border-color: #f5576c;
+    box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.2);
+    width: 280px;
 }
 
-.search__input::-webkit-input-placeholder {
-    font-weight: 100;
-    color: black;
-}
-
-.search__input:focus+.search__button {
-    background-color: #f0eeee;
+.search__input::placeholder {
+    font-weight: 500;
+    color: #a0aec0;
 }
 
 .search__button {
     border: none;
-    background-color: #f4f2f2;
-    margin-top: .1em;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 0.6rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 10px rgba(245, 87, 108, 0.3);
 }
 
 .search__button:hover {
-    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(245, 87, 108, 0.5);
+}
+
+.search__button:active {
+    transform: scale(1.05);
 }
 
 .search__icon {
     height: 1.3em;
     width: 1.3em;
-    fill: #b4b4b4;
+    fill: #ffffff;
 }
